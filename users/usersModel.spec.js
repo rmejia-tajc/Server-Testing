@@ -7,9 +7,7 @@ describe("users model", () => {
   }); // clean up the database so each test can be unaffected by the previous test. Can be moved up to clean up after all tests or down to clean up after certain test(s)!
 
   describe("insert()", () => {
-
     it("should insert(create) the new user into the database", async () => {
-
       let users = await db("users");
       expect(users).toHaveLength(0);
 
@@ -20,7 +18,6 @@ describe("users model", () => {
     });
 
     it("should insert(create) the new users into the database", async () => {
-
       await Users.insert({ name: "test1" });
       await Users.insert({ name: "test2" });
       await Users.insert({ name: "test3" });
@@ -33,7 +30,6 @@ describe("users model", () => {
     });
 
     it("should insert(create) the new user into the database", async () => {
-
       let user = await Users.insert({ name: "test1" });
       expect(user.name).toBe("test1");
 
@@ -43,9 +39,10 @@ describe("users model", () => {
       user = await Users.insert({ name: "test3" });
       expect(user.name).toBe("test3");
     });
+  });
 
+  describe("remove()", () => {
     it("should remove(delete) the user from the database", async () => {
-
       await Users.insert({ name: "test1" });
 
       let users = await db("users");
@@ -58,7 +55,6 @@ describe("users model", () => {
     });
 
     it("should remove(delete) the users from the database", async () => {
-
       await Users.insert({ name: "test1" });
       await Users.insert({ name: "test2" });
       await Users.insert({ name: "test3" });
